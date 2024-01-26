@@ -1,6 +1,7 @@
 import { Hono } from "https://deno.land/x/hono@v3.12.0/mod.ts";
 import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 import { genNumberWithAlphabet } from "./utils/genNumberWithAlphabet.ts";
+import { basicAuth } from "https://deno.land/x/hono@v3.12.0/middleware.ts";
 
 const app = new Hono();
 
@@ -14,6 +15,13 @@ const parse = (body: string) => {
     env.createPath ?? "",
   )
 };
+
+if (env.password !== "") {
+  app.use(`/${env.createPath ?? ""}`, basicAuth({
+    username: "",
+    password: env.password ?? "",
+  }));
+}
 
 app.get(`/${env.createPath ?? ""}`, async (c) => {
   return c.html(parse(await Deno.readTextFile("./public/index.html")));
