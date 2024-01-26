@@ -1,0 +1,9 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "tasks": {
+    "start": "deno run -A --unstable server.ts",
+    "dev": "deno run --watch -A --unstable server.ts"
+  }
+}

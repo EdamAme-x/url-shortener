@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>URL Shortener</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css?{{uuid}}" rel="stylesheet" />
+    <script src="js?{{uuid}}" defer></script>
+    <script src="//cdn.tailwindcss.com?{{uuid}}" defer></script>
+    <meta name="session" content="{{uuid}}" />
+  </head>
+  <body class="bg-gray-100 font-sans antialiased">
+    <div
+      class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+    >
+      <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <h1 class="text-center text-3xl font-extrabold text-gray-900">
+          URL Shortener
+        </h1>
+        <div class="mt-8 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div>
+            <label for="url" class="block text-sm font-medium text-gray-700">
+              URL
+            </label>
+            <div class="mt-1">
+              <input
+                type="text"
+                id="url"
+                class="block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
+                placeholder="https://example.com"
+              />
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <button
+              id="create"
+              type="button"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Create
+            </button>
+          </div>
+        </div>
+        <div id="result" class="mt-6"></div>
+      </div>
+    </div>
+  </body>
+</html>
