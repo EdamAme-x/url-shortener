@@ -50,6 +50,10 @@ app.post(`/${env.createPath ?? ""}`, async (c) => {
     return c.json({ error: "url is required" }, 400);
   }
 
+  if (body.url.length > 300) {
+    return c.json({ error: "url is too long" }, 400);
+  }
+
   const id = genNumberWithAlphabet(
     isNaN(parseInt(env.pathLength ?? "5")) ? 5 : parseInt(env.pathLength),
   );
